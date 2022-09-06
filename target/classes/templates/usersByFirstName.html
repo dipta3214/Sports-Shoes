@@ -18,12 +18,12 @@
 			<th>Change password</th>
 		</tr>
 		
-		<tr >
-			<td th:text="${user.id}" />
-			<td th:text="${user.firstName}" />
-			<td th:text="${user.lastName}" />
-			<td th:text="${user.email}" />
-			<td><a href="#" th:href="@{/admin/editPass/{id}(id=${user.id})}" >edit</a></td>
+		<tr th:each="u: ${user}">
+			<td th:text="${u.id}" />
+			<td th:text="${u.firstName}" />
+			<td th:text="${u.lastName}" />
+			<td th:text="${u.email}" />
+			<td><a href="#" th:href="@{/admin/editPass/{id}(id=${u.id})}" >edit</a></td>
 			
 		</tr>
 	</table>

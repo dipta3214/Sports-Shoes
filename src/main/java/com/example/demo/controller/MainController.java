@@ -79,7 +79,7 @@ public class MainController {
 		ModelAndView mv=new ModelAndView();
 		
 		String res = request.getParameter("user");
-		User u = userRepo.findByFirstName(res);
+		List<User> u = userRepo.findByFirstName(res);
 		mv.addObject("user", u);
 		mv.setViewName("usersByFirstName");
 		return mv;
