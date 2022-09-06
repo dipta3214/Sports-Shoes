@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<span><a th:href="@{/user}">Home</a></span> | <span><a th:href="@{/logout}">Logout</a></span>
+<br><hr>
+
+
+
+	<table border="1">
+		<tr>
+			<th>Shoe #</th>
+			<th>Name</th>
+			<th>Category</th>
+			<th>Price</th>
+
+			<th>Buy</th>
+		</tr>
+
+		<tr th:each="shoe: ${shoes}">
+			<td th:text="${shoe.id}" />
+			<td th:text="${shoe.name}" />
+			<td th:text="${shoe.category}" />
+			<td th:text="${shoe.price}" />
+
+			<td><a href="#"
+				th:href="@{/user/purchase/{id}(id=${shoe.id})}">Buy</a></td>
+		</tr>
+	</table>
+</body>
+</html>

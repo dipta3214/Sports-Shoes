@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<span><a th:href="@{/user}">Home</a></span> | <span><a th:href="@{/logout}">Logout</a></span>
+<br><hr>
+
+
+
+<h1>Hello [[${#request.remoteUser}]]! Welcome to SportyShoes.com</h1>
+
+<h3>Check out all the shoes we have</h3>
+<a th:href="@{/user/getAllShoes}">Get all shoes</a>
+
+<h3>Choose shoes by category</h3>
+<table>
+	<tr th:each="c: ${category}" >
+			<td><a th:href="@{/user/getByCategory/{category}(category=${c.name})}" th:text="${c.name}" /></td>
+			
+		</tr>
+</table>
+
+<h3>My purchases</h3>
+<a th:href="@{/user/getPurchaseByCategory/{email}(email=${#request.remoteUser})}">Purchases</a>
+
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<span><a th:href="@{/admin}">Home</a></span> | <span><a th:href="@{/logout}">Logout</a></span>
+<br><hr>
+
+
+
+<a href="#" th:href="@{/admin/createCategoryForm}">Add a category</a> <br><br>
+
+	<table border="1">
+		<tr>
+			<th>category #</th>
+			<th>Name</th>
+
+			<th>edit</th>
+			<th>delete</th>
+		</tr>
+
+		<tr th:each="c: ${category}">
+			<td th:text="${c.id}" />
+			<td th:text="${c.name}" />
+
+			<td><a href="#" th:href="@{/category/edit/{id}(id=${c.id})}">edit</a></td>
+			<td><a href="#" th:href="@{/category/delete/{id}(id=${c.id})}">delete</a></td>
+		</tr>
+	</table>
+</body>
+</html>

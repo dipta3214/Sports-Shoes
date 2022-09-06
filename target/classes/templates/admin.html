@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<span><a th:href="@{/admin}">Home</a></span> | <span><a th:href="@{/logout}">Logout</a></span>
+<br><hr>
+
+<h2>Welcome [[${#request.remoteUser}]]!</h2>
+
+<h3>Get all shoes</h3><br>
+<a href="#" th:href="@{/admin/getAllShoes}">Get all shoes</a><br><br>
+
+<h3>Add a shoe</h3>
+<a href="#" th:href="@{/admin/createShoeGet}">add</a><br><br>
+
+<h3>Categories:</h3>
+<a href="#" th:href="@{/admin/getAllCategories}">Get all category</a>
+<table>
+	<tr th:each="c: ${category}" >
+			<td><a th:href="@{/admin/getByCategory/{category}(category=${c.name})}" th:text="${c.name}" /></td>
+			
+		</tr>
+</table>
+
+<br>
+
+<a href="#" th:href="@{/admin/createCategoryForm}">Add a category</a>
+
+<h3>Check all the users</h3>
+<a href="#" th:href="@{/admin/users}">users</a><br><br>
+
+<h3>Get users by Firstname</h3>
+<form  action="getUser">
+
+	User Firstname: <input type="text" placeholder="Enter your value" name="user" >
+	<input type="submit" value="search">
+	
+	</form>
+	
+	
+	
+	
+	
+<h3>Purchase History</h3>
+
+<h3>Get all purchases</h3>
+<a href="#" th:href="@{/admin/getAllPurchases}">Get all purchases</a><br><br>
+
+<h3>Get purchases by category:</h3>
+<table>
+	<tr th:each="c: ${category}" >
+			<td><a th:href="@{/admin/getPurchaseByCategory/{category}(category=${c.name})}" th:text="${c.name}" /></td>
+			
+		</tr>
+</table><br>
+
+<a href="#" th:href="@{/admin/getLatestPurchases}">Get latest Purchases order by date</a>
+</body>
+</html>

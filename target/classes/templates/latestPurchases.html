@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<span><a th:href="@{/admin}">Home</a></span> | <span><a th:href="@{/logout}">Logout</a></span>
+<br><hr>
+
+<table border="1">
+		<tr>
+			<th>purchases #</th>
+			<th>purchaseDate</th>
+			<th>email</th>
+			<th>Shoe</th>
+			<th>Category</th>
+			<th>Price</th>
+			<th>shipping</th>
+			<th>delete</th>
+		</tr>
+		
+		<tr th:each="p: ${purchases}" >
+			<td th:text="${p.id}" />
+			<td th:text="${p.purchaseDate}" />
+			<td th:text="${p.email}" />
+			<td th:text="${p.name}" />
+			<td th:text="${p.category}" />
+			<td th:text="${p.price}" />
+			<td th:text="${p.shipping}" />
+			<td><a href="#" th:href="@{/admin/purchase/{id}(id=${p.id})}" >delete</a></td>
+		</tr>
+	</table>
+</body>
+</html>
